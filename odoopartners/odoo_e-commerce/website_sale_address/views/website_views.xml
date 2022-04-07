@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_website_form" model="ir.ui.view">
+        <field name="name">view.website.form.inherit.website.sale.tweaks</field>
+        <field name="model">website</field>
+        <field name="inherit_id" ref="website.view_website_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='other']" position="after">
+                <div name="ecommerce">
+                    <group string="eCommerce" name="ecommerce">
+                        <group string="Billing Address Fields" name="billing_address" groups="sales_team.group_sale_manager">
+                            <label for="use_billing_address_phone"/>
+                            <div class="o_row">
+                                <field name="use_billing_address_phone" widget="boolean_toggle" />
+                                <span attrs="{'invisible':[('use_billing_address_phone', '=', False)]}"><span class="text-muted">&#65372;</span> required</span>
+                                <field name="billing_address_phone_required" attrs="{'invisible':[('use_billing_address_phone', '=', False)]}" widget="boolean_toggle" />
+                            </div>
+                            <label for="use_billing_address_street"/>
+                            <div class="o_row">
+                                <field name="use_billing_address_street" widget="boolean_toggle" />
+                                <span attrs="{'invisible':[('use_billing_address_street', '=', False)]}"><span class="text-muted">&#65372;</span> required</span>
+                                <field name="billing_address_street_required" attrs="{'invisible':[('use_billing_address_street', '=', False)]}" widget="boolean_toggle" />
+                            </div>
+                            <label for="use_billing_address_street2"/>
+                            <div class="o_row">
+                                <field name="use_billing_address_street2" widget="boolean_toggle" />
+                                <span attrs="{'invisible':[('use_billing_address_street2', '=', False)]}"><span class="text-muted">&#65372;</span> required</span>
+                                <field name="billing_address_street2_required" attrs="{'invisible':[('use_billing_address_street2', '=', False)]}" widget="boolean_toggle" />
+                            </div>
+                            <label for="use_billing_address_city"/>
+                            <div class="o_row">
+                                <field name="use_billing_address_city" widget="boolean_toggle" />
+                                <span attrs="{'invisible':[('use_billing_address_city', '=', False)]}"><span class="text-muted">&#65372;</span> required</span>
+                                <field name="billing_address_city_required" attrs="{'invisible':[('use_billing_address_city', '=', False)]}" widget="boolean_toggle" />
+                            </div>
+                            <div class="text-muted" colspan="2" attrs="{'invisible':[('default_billing_country_id', '!=', False)]}">
+                                Specify the default country to operate with country-related fields: ZIP, State.
+                            </div>
+                            <label for="default_billing_country_id"/>
+                            <div class="o_row">
+                                <field name="default_billing_country_id" options="{'no_create': True, 'no_create_edit': True, 'no_quick_create': True}" />
+                                <field name="default_billing_country_only" widget="boolean_toggle" attrs="{'invisible':['|', '&amp;', ('default_billing_country_id', '=', True), ('use_billing_address_country', '=', False), ('default_billing_country_id', '=', False)]}" />
+                                <span attrs="{'invisible':['|', '&amp;', ('default_billing_country_id', '=', True), ('use_billing_address_country', '=', False), ('default_billing_country_id', '=', False)]}">Disable to change</span>
+                            </div>
+                            <div class="text-muted" colspan="2" attrs="{'invisible':['|', ('default_billing_country_id', '=', False), ('default_billing_country_only', '=', False)]}">
+                                Country-related fields:
+                            </div>
+                            <label for="use_billing_address_country" attrs="{'invisible':['|', ('default_billing_country_id', '=', False), ('default_billing_country_only', '=', False)]}" />
+                            <div class="o_row" attrs="{'invisible':['|', ('default_billing_country_id', '=', False), ('default_billing_country_only', '=', False)]}">
+                                <field name="use_billing_address_country" widget="boolean_toggle" />
+                                
+                            </div>
+                            <label for="use_billing_address_zip" attrs="{'invisible':['|', ('default_billing_country_id', '=', False), ('default_billing_country_only', '=', False)]}" />
+                            <div class="o_row" attrs="{'invisible':['|', ('default_billing_country_id', '=', False), ('default_billing_country_only', '=', False)]}">
+                                <field name="use_billing_address_zip" widget="boolean_toggle" />
+                                <span><span class="text-muted">&#65372;</span> required</span>
+                                <field name="billing_address_zip_required" widget="boolean_toggle" />
+                            </div>
+                            <label for="use_billing_address_state" attrs="{'invisible':['|', ('default_billing_country_id', '=', False), ('default_billing_country_only', '=', False)]}" />
+                            <div class="o_row" attrs="{'invisible':['|', ('default_billing_country_id', '=', False), ('default_billing_country_only', '=', False)]}" >
+                                <field name="use_billing_address_state" widget="boolean_toggle" />
+                                <span><span class="text-muted">&#65372;</span> required</span>
+                                <field name="billing_address_state_required" widget="boolean_toggle" />
+                            </div>
+                        </group>
+
+                        <group string="Shipping Address Fields" name="shipping_address" groups="sales_team.group_sale_manager">
+                            <label for="use_shipping_address_phone"/>
+                            <div class="o_row">
+                                <field name="use_shipping_address_phone" widget="boolean_toggle" />
+                                <span attrs="{'invisible':[('use_shipping_address_phone', '=', False)]}"><span class="text-muted">&#65372;</span> required</span>
+                                <field name="shipping_address_phone_required" attrs="{'invisible':[('use_shipping_address_phone', '=', False)]}" widget="boolean_toggle" />
+                            </div>
+                            <label for="use_shipping_address_street"/>
+                            <div class="o_row">
+                                <field name="use_shipping_address_street" widget="boolean_toggle" />
+                                <span attrs="{'invisible':[('use_shipping_address_street', '=', False)]}"><span class="text-muted">&#65372;</span> required</span>
+                                <field name="shipping_address_street_required" attrs="{'invisible':[('use_shipping_address_street', '=', False)]}" widget="boolean_toggle" />
+                            </div>
+                            <label for="use_shipping_address_street2"/>
+                            <div class="o_row">
+                                <field name="use_shipping_address_street2" widget="boolean_toggle" />
+                                <span attrs="{'invisible':[('use_shipping_address_street2', '=', False)]}"><span class="text-muted">&#65372;</span> required</span>
+                                <field name="shipping_address_street2_required" attrs="{'invisible':[('use_shipping_address_street2', '=', False)]}" widget="boolean_toggle" />
+                            </div>
+                            <label for="use_shipping_address_city"/>
+                            <div class="o_row">
+                                <field name="use_shipping_address_city" widget="boolean_toggle" />
+                                <span attrs="{'invisible':[('use_shipping_address_city', '=', False)]}"><span class="text-muted">&#65372;</span> required</span>
+                                <field name="shipping_address_city_required" attrs="{'invisible':[('use_shipping_address_city', '=', False)]}" widget="boolean_toggle" />
+                            </div>
+                            <div class="text-muted" colspan="2" attrs="{'invisible': [('default_shipping_country_id', '!=', False)]}">
+                                Specify the default country to operate with country-related fields: ZIP, State.
+                            </div>
+                            <label for="default_shipping_country_id" string="Default Country" />
+                            <div class="o_row">
+                                <field name="default_shipping_country_id" options="{'no_create': True, 'no_create_edit': True, 'no_quick_create': True}" />
+                                <field name="default_shipping_country_only" widget="boolean_toggle" attrs="{'invisible':['|', '&amp;', ('default_shipping_country_id', '=', True), ('use_shipping_address_country', '=', False), ('default_shipping_country_id', '=', False)]}" />
+                                <span attrs="{'invisible':['|', '&amp;', ('default_shipping_country_id', '=', True), ('use_shipping_address_country', '=', False), ('default_shipping_country_id', '=', False)]}">Disable to change</span>
+                            </div>
+                            <div class="text-muted" colspan="2" attrs="{'invisible':['|', ('default_shipping_country_id', '=', False), ('default_shipping_country_only', '=', False)]}">
+                                Country-related fields:
+                            </div>
+                            <field name="use_shipping_address_country" widget="boolean_toggle" attrs="{'invisible':['|', ('default_shipping_country_id', '=', False), ('default_shipping_country_only', '=', False)]}" />
+                            <label for="use_shipping_address_zip" attrs="{'invisible':['|', ('default_shipping_country_id', '=', False), ('default_shipping_country_only', '=', False)]}" />
+                            <div class="o_row" attrs="{'invisible':['|', ('default_shipping_country_id', '=', False), ('default_shipping_country_only', '=', False)]}">
+                                <field name="use_shipping_address_zip" widget="boolean_toggle" />
+                                <span><span class="text-muted">&#65372;</span> required</span>
+                                <field name="shipping_address_zip_required" widget="boolean_toggle" />
+                            </div>
+                            <label for="use_shipping_address_state" attrs="{'invisible':['|', ('default_shipping_country_id', '=', False), ('default_shipping_country_only', '=', False)]}" />
+                            <div class="o_row" attrs="{'invisible':['|', ('default_shipping_country_id', '=', False), ('default_shipping_country_only', '=', False)]}" >
+                                <field name="use_shipping_address_state" widget="boolean_toggle" />
+                                <span><span class="text-muted">&#65372;</span> required</span>
+                                <field name="shipping_address_state_required" widget="boolean_toggle" />
+                            </div>
+                        </group>
+                    </group>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
