@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="payment_delivery_inherit" name="Delivery Costs" inherit_id="website_sale_delivery.payment_delivery">
+        <xpath expr="//div[@t-if='deliveries']//ul//li" position="inside">
+            <t t-if="delivery.is_pickup">
+                <select t-attf-id="clicked_#{delivery.id}" name="sd_pickup_id" class="sd_pickup_id form-control required searchselect2 mt16 mb16" style="display: none;">
+                    <!-- <option value="">Select Store Locations...</option> -->
+                    <t t-foreach="delivery.available_pickup_ids" t-as="pickup">
+                        <option t-att-value="pickup.id" t-att-selected="website_sale_order.pickup_store_id.id == pickup.id">
+                            <t t-esc="pickup.name"/>
+                            <t t-if="pickup.street">, <t t-esc="pickup.street"/></t>
+                            <t t-if="pickup.city">, <t t-esc="pickup.city"/></t>
+                            <t t-if="pickup.state_id">, <t t-esc="pickup.state_id.name"/></t>
+                            <t t-if="pickup.zip">, <t t-esc="pickup.zip"/></t>
+                            <t t-if="pickup.country_id">, <t t-esc="pickup.country_id.name"/></t>
+                        </option>
+                    </t>
+                </select>
+            </t>
+        </xpath>
+    </template>
+    <template id="cart_delivery_update" name="Delivery Costs Update" >
+        <tr id="order_delivery" t-if="website_sale_order and website_sale_order.carrier_id and not website_sale_order.pickup_store_id">
+          <td class="text-right border-0 text-muted"  title="Delivery will be updated after choosing a new delivery method">Delivery:</td>
+          <td class="text-xl-right border-0 text-muted" >
+               <span t-field="website_sale_order.amount_delivery" class="monetary_field" style="white-space: nowrap;" t-options='{
+                  "widget": "monetary",
+                  "display_currency": website_sale_order.currency_id,
+              }'/>
+          </td>
+        </tr>
+    </template>
+    <template id="cart_pickup_address" name="Pickup Address" >
+        <tr id="order_delivery" t-if="website_sale_order and website_sale_order.pickup_store_id">
+          <td class="text-right noborder"  title="Delivery will be updated after choosing a new delivery method">Pickup Address:</td>
+          <td class="text-xl-right noborder" >
+            <div t-field="website_sale_order.pickup_store_id" t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+            <strong><span class="sd_pickup_time" style="white-space: nowrap;" t-raw="website_sale_order.pickup_store_id.opening_closing_hours"/></strong>
+          </td>
+        </tr>
+    </template>
+    <template id="cart_delivery_inherit_pickup_address" name="Pickup Address" inherit_id="website_sale_delivery.cart_delivery">
+        <xpath expr="//tr[@id='order_delivery']" position="attributes">
+            <attribute name="t-if">website_sale_order and website_sale_order.carrier_id and not website_sale_order.pickup_store_id</attribute>
+        </xpath>
+    </template>
+    <template id="total_inherit_pickup_address" inherit_id="website_sale.total">
+        <xpath expr="//tr[@id='order_total']" position="after">
+            <t t-call="website_product_store_pickup_knk.cart_pickup_address"/>
+        </xpath>
+    </template>
+    <template id="payment_delivery_methods_inherit_pickup" inherit_id="website_sale_delivery.payment_delivery_methods">
+        <xpath expr="//span[@t-att-class='badge_class'][2]" position="attributes">
+            <attribute name="t-att-class">'badge_class' if not delivery.is_pickup else 'd-none'</attribute>
+        </xpath>
+    </template>
+</odoo>

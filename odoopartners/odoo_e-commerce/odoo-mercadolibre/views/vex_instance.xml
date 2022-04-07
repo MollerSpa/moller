@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<menuitem id="meli_config" name="MercadoLibre" sequence="1"  web_icon="odoo-mercadolibre,static/description/icon.png" />
+	<menuitem id="meli_main_list_sync" name="Synchronized" sequence="2"  parent="odoo-mercadolibre.meli_config" />
+
+    <record id="herencia_instancia_meli" model="ir.ui.view">
+           <field name="name">vex.instance</field>
+           <field name="model">vex.instance</field>
+           <field name="inherit_id" ref="base_conector_vex.vex_instance_form_view"/>
+           <field name="arch" type="xml">
+               <xpath expr="//field[@name='name']" position="after">
+                  
+                   <field name="app_id"   attrs="{'invisible': [('conector','!=','meli')],
+                    'required': [('conector', '=','meli')]}" />
+                   <field name="secret_key"   attrs="{'invisible': [('conector','!=','meli')],
+                    'required': [('conector', '=','meli')]}" />
+               </xpath>
+               <xpath expr="//field[@name='company']" position="after">
+                   <field name="nick" attrs="{'invisible': [('conector','!=','meli')]}" />
+                   <field name="meli_country"  attrs="{'invisible': [('conector','!=','meli')],
+                    'required': [('conector', '=','meli')]}" />
+                   <button name="get_user" type="object"
+                                          class="btn-primary" icon="fa-spinner"
+                                          attrs="{'invisible': [('meli_country', '=', False),('conector','!=','meli')]}"
+                                  >
+                                       Get User ID
+                                  </button>
+                   <field name="user_id"  attrs="{'invisible': [('conector','!=','meli')],
+                    'required': [('conector', '=','meli')]}" />
+               </xpath>
+               <xpath expr="//page[@name='basic_conf']" position="before" >
+                   <page string="Keys" name ="before" attrs="{'invisible': [('conector','!=','meli')],
+                    'required': [('conector', '=','meli')]}">
+                        <group>
+                            <field name="server_code" attrs="{'required': [('conector', '=','meli')]}" />
+                            <button name="get_token" type="object"
+                                          class="btn-primary" icon="fa-spinner"
+                                          attrs="{'invisible': [('conector', '!=','meli')]}"
+                                  >
+                                       Get Token
+                            </button>
+                            <field name="access_token" attrs="{'required': [('conector', '=','meli')]}" />
+                            <field name="refresh_token" attrs="{'required': [('conector', '=','meli')]}" />
+                            <field name="redirect_uri" attrs="{'required': [('conector', '=','meli')]}" />
+                            <field name="default_currency" attrs="{'required': [('conector', '=','meli')]}" />
+                                     
+                        </group>
+                    </page>
+               </xpath>
+
+           </field>
+    </record>
+
+
+	<record id="action_meli_synchro_instance" model="ir.actions.act_window">
+        <field name="name">Instances</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vex.instance</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('conector','=', 'meli')]</field>
+        <field name="context">{'default_conector':'meli'}</field>
+    </record>
+
+    <menuitem action="action_meli_synchro_instance" id="meli_synchro_instance_menu_id"
+              parent="meli_config"/>
+</odoo>

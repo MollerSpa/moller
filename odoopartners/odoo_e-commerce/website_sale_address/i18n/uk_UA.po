@@ -1,0 +1,128 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_sale_tweaks
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-24 14:24+0000\n"
+"PO-Revision-Date: 2020-04-25 10:34+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: uk_UA\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: website_sale_tweaks
+#: model_terms:ir.ui.view,arch_db:website_sale_tweaks.view_website_form
+msgid ""
+"<span class=\"text-muted\" colspan=\"2\">Caution: by disabling the E-mail "
+"field, you can limit the ability to communicate with customers.</span>"
+msgstr ""
+"<span class=\"text-muted\" colspan=\"2\">Увага: вимикаючи поле E-mail, ви "
+"обмежуєте можливість спілкування з покупцями. Вимикайте це поле тільки "
+"якщо Ви впевнені в своїх діях.</span>"
+
+#. module: website_sale_tweaks
+#: model_terms:ir.ui.view,arch_db:website_sale_tweaks.view_website_form
+msgid "Billing Address Fields"
+msgstr "Поля адреси покупця"
+
+#. module: website_sale_tweaks
+#: model:ir.model.fields,field_description:website_sale_tweaks.field_website__use_billing_address_city
+msgid "City"
+msgstr "Місто"
+
+#. module: website_sale_tweaks
+#: model:ir.model.fields,field_description:website_sale_tweaks.field_website__use_billing_address_country
+msgid "Country"
+msgstr "Країна"
+
+#. module: website_sale_tweaks
+#: model:ir.model.fields,field_description:website_sale_tweaks.field_website__default_billing_country_id
+msgid "Default Country"
+msgstr "Країна за замовчуванням"
+
+#. module: website_sale_tweaks
+#: model:ir.model.fields,field_description:website_sale_tweaks.field_website__use_billing_address_phone
+msgid "Phone"
+msgstr "Телефон"
+
+#. module: website_sale_tweaks
+#: model_terms:ir.ui.view,arch_db:website_sale_tweaks.view_website_form
+msgid "Shipping Address Fields"
+msgstr "Поля адреси доставки"
+
+#. module: website_sale_tweaks
+#: model:ir.model.fields,field_description:website_sale_tweaks.field_website__use_shipping_address_city
+msgid "Shipping City"
+msgstr "Місто"
+
+#. module: website_sale_tweaks
+#: model:ir.model.fields,field_description:website_sale_tweaks.field_website__use_shipping_address_country
+msgid "Shipping Country"
+msgstr "Країна"
+
+#. module: website_sale_tweaks
+#: model:ir.model.fields,field_description:website_sale_tweaks.field_website__use_shipping_address_phone
+msgid "Shipping Phone"
+msgstr "Телефон"
+
+#. module: website_sale_tweaks
+#: model:ir.model.fields,field_description:website_sale_tweaks.field_website__use_shipping_address_state
+msgid "Shipping State"
+msgstr "Область"
+
+#. module: website_sale_tweaks
+#: model:ir.model.fields,field_description:website_sale_tweaks.field_website__use_shipping_address_street
+msgid "Shipping Street"
+msgstr "Вулиця"
+
+#. module: website_sale_tweaks
+#: model:ir.model.fields,field_description:website_sale_tweaks.field_website__use_shipping_address_street2
+msgid "Shipping Street 2"
+msgstr "Додаткові дані про адресу (Вулиця 2)"
+
+#. module: website_sale_tweaks
+#: model:ir.model.fields,field_description:website_sale_tweaks.field_website__use_shipping_address_zip
+msgid "Shipping Zip Code"
+msgstr "Індекс"
+
+#. module: website_sale_tweaks
+#: model_terms:ir.ui.view,arch_db:website_sale_tweaks.view_website_form
+msgid "Shop Grid"
+msgstr "Параметри відображення товарів в режимі перегляду Сітка"
+
+#. module: website_sale_tweaks
+#: model:ir.model.fields,field_description:website_sale_tweaks.field_website__use_billing_address_state
+msgid "State"
+msgstr "Область"
+
+#. module: website_sale_tweaks
+#: model:ir.model.fields,field_description:website_sale_tweaks.field_website__use_billing_address_street
+msgid "Street"
+msgstr "Вулиця"
+
+#. module: website_sale_tweaks
+#: model:ir.model.fields,field_description:website_sale_tweaks.field_website__use_billing_address_street2
+msgid "Street 2"
+msgstr "Додаткові дані про адресу (Вулиця 2)"
+
+#. module: website_sale_tweaks
+#: model:ir.model,name:website_sale_tweaks.model_website
+msgid "Website"
+msgstr "Сайт"
+
+#. module: website_sale_tweaks
+#: model:ir.model.fields,field_description:website_sale_tweaks.field_website__use_billing_address_zip
+msgid "Zip Code"
+msgstr "Індекс"
+
+#. module: website_sale_tweaks
+#: model_terms:ir.ui.view,arch_db:website_sale_tweaks.view_website_form
+msgid "eCommerce"
+msgstr "eCommerce"

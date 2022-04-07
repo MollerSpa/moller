@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Stores action -->
+    <record id="action_pickup_stores_ecommerce" model="ir.actions.act_window">
+        <field name="name">Stores</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('is_pickup', '=', True)]</field>
+        <field name="context">{'default_is_pickup': True}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a pickup store
+            </p>
+        </field>
+    </record>
+    <!--Stores menu -->
+    <menuitem id="menu_b2b_orders_orders" name="Stores"
+        action="action_pickup_stores_ecommerce"
+        parent="sale.menu_sale_config" sequence="5"/>
+</odoo>
