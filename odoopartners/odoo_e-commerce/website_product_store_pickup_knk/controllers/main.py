@@ -20,14 +20,14 @@ class WebsiteSoludoo(http.Controller):
             delivery_id = DeliveryCarrier.browse(delivery_id)
             if not delivery_id.is_pickup:
                 order_id.sudo().write({'pickup_store_id': False})
-                cart_delivery = request.env['ir.ui.view'].render_template("website_product_store_pickup_knk.cart_delivery_update", {
+                cart_delivery = request.env['ir.ui.view']._render_template("website_product_store_pickup_knk.cart_delivery_update", {
                         'website_sale_order': order_id,
                         'date': fields.Date.today(),
                     })
         if order_id and store_id:
             store_id = ResPartner.browse(store_id)
             order_id.sudo().write({'pickup_store_id': store_id.id})
-            cart_delivery = request.env['ir.ui.view'].render_template("website_product_store_pickup_knk.cart_pickup_address", {
+            cart_delivery = request.env['ir.ui.view']._render_template("website_product_store_pickup_knk.cart_pickup_address", {
                     'website_sale_order': order_id,
                     'date': fields.Date.today(),
                 })
@@ -41,7 +41,7 @@ class WebsiteSoludoo(http.Controller):
         if order_id and store_id:
             store_id = ResPartner.browse(store_id)
             order_id.sudo().write({'pickup_store_id': store_id.id})
-            pickup_address = request.env['ir.ui.view'].render_template("website_product_store_pickup_knk.cart_pickup_address", {
+            pickup_address = request.env['ir.ui.view']._render_template("website_product_store_pickup_knk.cart_pickup_address", {
                     'website_sale_order': order_id,
                     'date': fields.Date.today(),
                 })
