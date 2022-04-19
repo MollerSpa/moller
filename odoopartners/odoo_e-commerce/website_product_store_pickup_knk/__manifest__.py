@@ -4,7 +4,7 @@
 
 {
     'name': 'Website Product Store Pickup',
-    'version': '14.0',
+    'version': '14.1',
     'author': 'Kanak Infosystems LLP.',
     'license': 'OPL-1',
     'summary': 'This module is used to setup multiple pickup stores and allows the customer to select the pickup store based on their convenience. pickup product | store pickup | shop pickup | product pickup | pick product from shop | pick product from store | wharehouse pickup | pickup from shop',
