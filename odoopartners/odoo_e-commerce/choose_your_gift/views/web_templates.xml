@@ -2,12 +2,11 @@
 <odoo>
 
     <template id="gift_products_description" inherit_id="website_sale.product_custom_text" active="True" customize_show="True" name="Gift description">
-        <xpath expr="//a[@href='/shop/terms']" position="before">
+        <xpath expr="//div[@id='product_details']" position="inside">
             <t t-if='product.website_gift_active'>
                 <div class="badge badge-primary" style="font-size: 100%!important;white-space: inherit">
                     <span>Gift wrapping is available on this product. Add product in cart to see wrapping options.</span>
                 </div>
-                <hr/>
             </t>
         </xpath>
     </template>
@@ -16,7 +15,7 @@
         <xpath expr="//td[hasclass('td-product_name')]" position="inside">
             <t t-if='line.product_id.website_gift_active and not line.gift_line_ids'>
                 <div>
-                    <a t-att-id="str(line.product_id.id)" role="button" class="js_gift_wrap_product btn btn-primary d-none d-xl-inline-block" href="#">
+                    <a t-att-id="str(line.product_id.id)" role="button" class="js_gift_wrap_product btn btn-primary d-xl-inline-block" href="#">
                         <span class="">Gift wrap</span>
                     </a>
                 </div>

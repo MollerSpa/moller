@@ -16,7 +16,7 @@ class WebsiteSaleGift(WebsiteSale):
         total_gift_qty = sum(list(map(lambda x: x['quantity'], gift_product_ids)))
 
         if total_gift_qty > number_gifts:
-            return {'warning': f'La cantidad permitida de regalos es {number_gifts}'}
+            return {'warning': f'The maximum number of gifts allowed is {number_gifts}'}
 
         sale_order = request.website.sale_get_order(force_create=True)
         if sale_order.state != 'draft':
