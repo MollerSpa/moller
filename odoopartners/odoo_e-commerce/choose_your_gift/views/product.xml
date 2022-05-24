@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_public_category_form_view_inherit_choose_your_gift" model="ir.ui.view">
+        <field name="name">product.public.category.form.view.inherit.choose_your_gift</field>
+        <field name="model">product.public.category</field>
+        <field name="inherit_id" ref="website_sale.product_public_category_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sequence']" position="after">
+                <field name="choose_your_gift"/>
+                <field name="number_gifts" attrs="{'invisible' : [('choose_your_gift', '!=', True)]}"/>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <notebook>
+                    <page id="gift_page" string="Opciones de regalo" attrs="{'invisible' : [('choose_your_gift', '!=', True)]}">
+                        <field name="gifts_ids"/>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_form_view_inherit_choose_your_gift" model="ir.ui.view">
+        <field name="name">product.template.form.view.inherit.choose_your_gift</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="website_sale.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='public_categ_ids']" position="after">
+                <field name="website_gift_active" invisible="1"/>
+                <field name="gifts_ids" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

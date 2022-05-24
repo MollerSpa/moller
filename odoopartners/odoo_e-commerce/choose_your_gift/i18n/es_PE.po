@@ -1,0 +1,19 @@
+#. module: choose_your_gift
+#: model_terms:ir.ui.view,arch_db:choose_your_gift.gift_products_description
+msgid "<span>Gift wrapping is available on this product. Add product in cart to see wrapping options.</span>"
+msgstr "<span>Escoge un regalo disponible con este producto. Añade el producto al carrito para que veas las opciones.</span>"
+
+#. module: choose_your_gift
+#: model_terms:ir.ui.view,arch_db:choose_your_gift.gift_website_sale_cart_lines
+msgid "<span class=\"\">Gift wrap</span>"
+msgstr "<span class=\"\">Escoge tu regalo</span>"
+
+#. module: choose_your_gift
+#: model_terms:ir.ui.view,arch_db:choose_your_gift.gift_website_sale_cart_lines
+msgid "Remove one"
+msgstr "Quitar uno"
+
+#. module: choose_your_gift
+#: model_terms:ir.ui.view,arch_db:choose_your_gift.gift_website_sale_cart_lines
+msgid "Add one"
+msgstr "Agregue uno"
