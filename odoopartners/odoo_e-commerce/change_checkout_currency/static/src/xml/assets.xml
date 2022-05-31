@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="change_checkout_currency_assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr=".">
+            <script type="text/javascript" src="/change_checkout_currency/static/src/js/website.js"/>
+        </xpath>
+    </template>
+
+</odoo>
