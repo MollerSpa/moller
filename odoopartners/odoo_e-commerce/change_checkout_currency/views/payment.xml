@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="ecommerce_currency_sequence_tree_view" model="ir.ui.view">
+        <field name="name">ecommerce.currency.sequence.tree.view</field>
+        <field name="model">ecommerce.currency.sequence</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="price_list_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ecommerce_currency_sequence_form_view" model="ir.ui.view">
+        <field name="name">ecommerce.currency.sequence.form.view</field>
+        <field name="model">ecommerce.currency.sequence</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="price_list_id"/>
+                    <field name="company_id" invisible="1"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="payment_acquirer_form_view_inherit_change_checkout_currency" model="ir.ui.view">
+        <field name="name">payment.acquirer.form.view.inherit.change_checkout_currency</field>
+        <field name="model">payment.acquirer</field>
+        <field name="inherit_id" ref="website_payment.acquirer_form_website"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='website_id']" position="after">
+                <field name="ecommerce_currency_sequence_ids" widget="one2many"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
