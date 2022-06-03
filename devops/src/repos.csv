@@ -1,3 +1,4 @@
 owner,name_repository,url_repository,private
 odoopartners,odoo_e-commerce,https://github.com/odoopartners/odoo_e-commerce.git,1
 odoopartners,odoo_themes,https://github.com/odoopartners/odoo_themes.git,1
+odoopartners,CybroAddons,https://github.com/CybroOdoo/CybroAddons.git,1
