@@ -18,3 +18,10 @@ class SaleOrderLine(models.Model):
         column1='order_id',
         column2='id'
     )
+
+    def unlink(self):
+        lines_ids = self
+        for line in lines_ids:
+            if line.gift_line_ids:
+                self = self + line.gift_line_ids
+        return super(SaleOrderLine, self).unlink()
