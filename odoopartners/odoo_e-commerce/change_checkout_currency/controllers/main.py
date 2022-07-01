@@ -9,12 +9,11 @@ class WebsiteSaleGift(WebsiteSale):
     def cart_update_currency_checkout(self, **kw):
         order_id = kw['order_id']
         price_list_id = kw['price_list_id']
-
-        sale_order_id = request.env['sale.order'].browse(order_id)
+        sale_order_id = request.env['sale.order'].sudo().browse(order_id)
         if sale_order_id.pricelist_id and sale_order_id.pricelist_id.id == price_list_id:
             return {'equal': True}
         sale_order_id.pricelist_id = price_list_id
+        for line in sale_order_id.order_line:
+            line.product_id_change()
         sale_order_id._onchange_pricelist_id()
-
         return request.redirect("/shop/payment")
-

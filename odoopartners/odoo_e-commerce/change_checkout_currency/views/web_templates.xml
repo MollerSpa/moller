@@ -3,9 +3,8 @@
 
     <template id="change_checkout_currency_payment" inherit_id="payment.payment_tokens_list">
         <xpath expr="//t[@t-if='acq_extra_fees and acq_extra_fees.get(acq)']" position="before">
-            <select id="currency_payment_id" t-att-style="'' if len(acq.ecommerce_currency_sequence_ids)&gt;0 else 'display: none'" data-init="1">
-                <option value="">...</option>
-                <t t-foreach="acq.ecommerce_currency_sequence_ids" t-as="acq_currency_id">
+            <select id="currency_payment_id" t-att-style="'' if len(acq.ecommerce_currency_sequence_ids)&gt;0 else 'display: none'">
+                <t t-foreach="acq.ecommerce_currency_sequence_ids.sorted(key= lambda p: p.sequence, reverse=True)" t-as="acq_currency_id">
                     <option t-att-value="acq_currency_id.price_list_id.id">
                         <t t-esc="acq_currency_id.price_list_id.name" />
                     </option>
