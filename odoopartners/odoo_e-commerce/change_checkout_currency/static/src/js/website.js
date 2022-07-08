@@ -28,8 +28,33 @@ odoo.define("change_checkout_currency.change_checkout_currency", function (requi
                 if (data.equal) {
                     return;
                 }
-                window.location.reload();
+                // This is to run minor update as /shop/update_carrier controller (_handleCarrierUpdateResult in js)
+                self._handleCheckoutCurrencyUpdateResult(data)
+                // window.location.reload();
             });
+        },
+        _handleCheckoutCurrencyUpdateResult: function (result) {
+            var $payButton = $('#o_payment_form_pay');
+            var $amountDelivery = $('#order_delivery .monetary_field');
+            var $amountUntaxed = $('#order_total_untaxed .monetary_field');
+            var $amountTax = $('#order_total_taxes .monetary_field');
+            var $amountTotal = $('#order_total .monetary_field, #amount_total_summary.monetary_field');
+
+            if (result.status === true) {
+                $amountDelivery.html(result.new_amount_delivery);
+                $amountUntaxed.html(result.new_amount_untaxed);
+                $amountTax.html(result.new_amount_tax);
+                $amountTotal.html(result.new_amount_total);
+                var disabledReasons = $payButton.data('disabled_reasons') || {};
+                disabledReasons.carrier_selection = false;
+                $payButton.data('disabled_reasons', disabledReasons);
+                $payButton.prop('disabled', _.contains($payButton.data('disabled_reasons'), true));
+            } else {
+                $amountDelivery.html(result.new_amount_delivery);
+                $amountUntaxed.html(result.new_amount_untaxed);
+                $amountTax.html(result.new_amount_tax);
+                $amountTotal.html(result.new_amount_total);
+            }
         },
     })
 

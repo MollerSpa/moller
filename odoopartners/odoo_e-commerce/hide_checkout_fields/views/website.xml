@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="website_form_view_inherit_hide_checkout_fields" model="ir.ui.view">
+        <field name="name">website.form.view.inherit.hide_checkout_fields</field>
+        <field name="model">website</field>
+        <field name="inherit_id" ref="website_sale_address.view_website_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='default_billing_country_id']/parent::div" position="after">
+                <label for="use_billing_delivery_address"/>
+                <div class="o_row">
+                    <field name="use_billing_delivery_address" widget="boolean_toggle"/>
+                </div>
+            </xpath>
+            <xpath expr="//label[@for='use_billing_address_phone']" position="before">
+                <label for="use_billing_company"/>
+                <div class="o_row">
+                    <field name="use_billing_company" widget="boolean_toggle" string="Company"/>
+                    <span attrs="{'invisible':[('use_billing_company', '=', False)]}"><span class="text-muted">&#65372;</span> required</span>
+                    <field name="billing_company_required" attrs="{'invisible':[('use_billing_company', '=', False)]}" widget="boolean_toggle"/>
+                </div>
+
+                <label for="use_billing_vat"/>
+                <div class="o_row">
+                    <field name="use_billing_vat" widget="boolean_toggle"/>
+                    <span attrs="{'invisible':[('use_billing_vat', '=', False)]}"><span class="text-muted">&#65372;</span> required</span>
+                    <field name="billing_vat_required" attrs="{'invisible':[('use_billing_vat', '=', False)]}" widget="boolean_toggle"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

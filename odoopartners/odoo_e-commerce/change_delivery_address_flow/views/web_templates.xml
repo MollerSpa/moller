@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="change_checkout_currency_payment" inherit_id="website_sale_delivery.payment_delivery_methods">
+        <xpath expr="//t[@t-if='delivery.website_description']" position="before">
+            <t t-if="delivery.send_other_address">
+                <div class="col-md-12 col-lg-12 one_kanban">
+                    <a role="button" t-att-href="order.partner_id.get_shipping_address_count()" class='send_other_address xa-submit btn btn-secondary mb16'>
+                        <i class="fa fa-plus-square"/>
+                        <span>Enviar a otra dirección</span>
+                    </a>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>
