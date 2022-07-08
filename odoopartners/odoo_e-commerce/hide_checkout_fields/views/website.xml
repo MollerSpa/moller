@@ -15,7 +15,7 @@
             <xpath expr="//label[@for='use_billing_address_phone']" position="before">
                 <label for="use_billing_company"/>
                 <div class="o_row">
-                    <field name="use_billing_company" widget="boolean_toggle"/>
+                    <field name="use_billing_company" widget="boolean_toggle" string="Company"/>
                     <span attrs="{'invisible':[('use_billing_company', '=', False)]}"><span class="text-muted">&#65372;</span> required</span>
                     <field name="billing_company_required" attrs="{'invisible':[('use_billing_company', '=', False)]}" widget="boolean_toggle"/>
                 </div>
