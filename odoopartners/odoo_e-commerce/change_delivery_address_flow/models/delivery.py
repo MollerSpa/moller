@@ -19,5 +19,4 @@ class ResPartner(models.Model):
         shipping_href = '/shop/checkout'
         if shipping_count == 1:
             shipping_href = '/shop/address'
-        print(shipping_href)
         return shipping_href

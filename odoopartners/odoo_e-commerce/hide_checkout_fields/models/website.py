@@ -10,7 +10,7 @@ class SaleOrder(models.Model):
         help='Si Activas este campo, Odoo ocultará el campo “Enviar a la misma dirección” en la página de checkout'
     )
     use_billing_company = fields.Boolean(
-        string='Company',
+        string='Use Company',
         default=True,
     )
     billing_company_required = fields.Boolean(
