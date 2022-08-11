@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="external_layout_sale_order_shipping_label">
+        <div class="article doc_report_layout_standard" t-att-data-oe-model="doc and doc._name"
+             t-att-data-oe-id="doc and doc.id"
+             t-att-data-oe-lang="doc and doc.env.context.get('lang')">
+            <t t-call="web.address_layout"/>
+            <t t-raw="0"/>
+        </div>
+    </template>
+    <template id="print_sale_order_shipping">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="sale_order_shipping_label.external_layout_sale_order_shipping_label">
+                    <div class="page">
+                        <br/><br/>
+                        <t t-foreach="[1,2]" t-as="i">
+                            <t t-if="i == 2">
+                                <br/><br/>
+                            </t>
+                            <div align="center">
+                                <div>
+                                    <t t-if="not company">
+                                        <t t-if="company_id">
+                                            <t t-set="company" t-value="company_id"/>
+                                        </t>
+                                        <t t-elif="doc and 'company_id' in doc">
+                                            <t t-set="company" t-value="doc.company_id.sudo()"/>
+                                        </t>
+                                        <t t-else="else">
+                                            <t t-set="company" t-value="res_company"/>
+                                        </t>
+                                    </t>
+                                    <img style="width: 320px; height: 162px;" t-att-src="'data:image/png;base64,%s' % company.logo" t-if="company.logo"/>
+                                </div>
+                                <br/>
+                                <div style="font-family: Arial; font-size: 38px; font-weight: 500;">
+                                    <t t-if="doc.allow_third_party">
+                                        <t t-if="doc.third_party_name">
+                                            <span>
+                                                <t t-esc="doc.third_party_name"/>
+                                            </span>
+                                            <span>
+                                                <t t-esc="doc.third_party_lastname"/>
+                                            </span>
+                                            <span>
+                                                <t t-esc="doc.third_party_lastname2"/>
+                                            </span>
+                                        </t>                                        
+                                    </t>
+                                    <t t-else="">
+                                        <t t-esc="doc.partner_shipping_id.name"/>
+                                    </t>
+                                </div>
+                                <div style="font-family: Arial; font-size: 42px; font-weight: 700; color: #e8a125;">
+                                    <t t-esc="doc.name"/>
+                                </div>
+                                <div style="font-family: Arial; font-size: 22px; font-weight: 400;">
+                                    <t t-if="doc.third_party_name_vat or doc.partner_shipping_id.vat">
+                                        <span>RUC</span>
+                                    </t>    
+                                    <t t-if="doc.third_party_name_vat">
+                                        <t t-esc="doc.third_party_name_vat"/>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-if="doc.partner_shipping_id">
+                                            <t t-if="doc.partner_shipping_id.vat">
+                                                <t t-esc="doc.partner_shipping_id.vat"/>
+                                            </t>
+                                        </t>                                    
+                                    </t>
+                                </div>
+                                <div style="font-family: Arial; font-size: 22px; font-weight: 400;">
+                                    <t t-if="doc.partner_id">
+                                        <t t-if="doc.partner_id.phone or doc.partner_id.mobile">
+                                            <span>Teléfono/Móbil:</span>
+                                        </t>
+                                        <t t-if="doc.partner_id.phone">
+                                            <t t-esc="doc.partner_id.phone"/>
+                                        </t>
+                                        <t t-if="doc.partner_id.mobile">
+                                            /<t t-esc="doc.partner_id.mobile"/>
+                                        </t>
+                                    </t>
+                                </div>
+                                <div style="font-family: Arial; font-size: 40px; font-weight: 500; color: #e8a125;">
+                                    <t t-if="doc.pickup_store_id">
+                                        <t t-if="doc.pickup_store_id.street">
+                                            <t t-esc="doc.pickup_store_id.street"/>,
+                                        </t>
+                                        <t t-if="doc.pickup_store_id.street2">
+                                            <t t-esc="doc.pickup_store_id.street2"/>,
+                                        </t>
+                                        <t t-if="doc.pickup_store_id.city">
+                                            <t t-esc="doc.pickup_store_id.city"/>,
+                                        </t>
+                                        <t t-if="doc.pickup_store_id.state_id.name">
+                                            <t t-esc="doc.pickup_store_id.state_id.name"/>,
+                                        </t>
+                                        <t t-if="doc.pickup_store_id.zip">
+                                            <t t-esc="doc.pickup_store_id.zip"/>,
+                                        </t>
+                                        <t t-if="doc.pickup_store_id.country_id.name">
+                                            <t t-esc="doc.pickup_store_id.country_id.name"/>
+                                        </t>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-if="doc.partner_shipping_id.street">
+                                            <t t-esc="doc.partner_shipping_id.street"/>,
+                                        </t>
+                                        <t t-if="doc.partner_shipping_id.street2">
+                                            <t t-esc="doc.partner_shipping_id.street2"/>,
+                                        </t>
+                                        <t t-if="doc.partner_shipping_id.city">
+                                            <t t-esc="doc.partner_shipping_id.city"/>,
+                                        </t>
+                                        <t t-if="doc.partner_shipping_id.state_id.name">
+                                            <t t-esc="doc.partner_shipping_id.state_id.name"/>,
+                                        </t>
+                                        <t t-if="doc.partner_shipping_id.zip">
+                                            <t t-esc="doc.partner_shipping_id.zip"/>,
+                                        </t>
+                                        <t t-if="doc.partner_shipping_id.country_id.name">
+                                            <t t-esc="doc.partner_shipping_id.country_id.name"/>
+                                        </t>
+                                    </t>
+                                </div>
+                                <t t-if="i == 1">
+                                    <br/><br/>
+                                </t>
+                            </div>
+                        </t>
+                        <br/><br/>
+                    </div> 
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

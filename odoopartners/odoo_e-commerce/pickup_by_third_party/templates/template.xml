@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="template_pickup_by_third_party">
+        <div t-att-style="'' if allow_third_party else 'display: none'" id="form_pickup_by_third_party">
+            <div id="form_who_picks_up" class="form-group mt24 mb24" style="display: flex; width: 100%;">
+                <h3 style="width: 60%;">Who picks up?</h3>
+                <div style="width: 40%;">
+                    <select class="form-control form-control-lg" id="selection_allow_third_party">
+                        <option value="me">Me</option>
+                        <option value="another">Another person</option>
+                    </select>
+                </div>
+            </div>
+            <div id="form_allow_third_party" style="display:none;">
+                <h4 class="mt24 mb24">Data of person who withdraws</h4>
+                <div t-attf-class="form-group col-12 mb-1 mt-3">
+                    <label t-attf-class="label-optional" for="third_party_name">Name</label>
+                    <input t-attf-class="form-control input-lg" type="text" id="third_party_name" name="third_party_name"/>
+                </div>
+                <div t-attf-class="form-group col-12 mb-1 mt-3">
+                    <label t-attf-class="label-optional" for="third_party_lastname">Last Name</label>
+                    <input t-attf-class="form-control input-lg" type="text" id="third_party_lastname" name="third_party_lastname"/>
+                </div>
+                <div t-attf-class="form-group col-12 mb-1 mt-3">
+                    <label t-attf-class="label-optional" for="third_party_lastname2">Mother Last Name</label>
+                    <input t-attf-class="form-control input-lg" type="text" id="third_party_lastname2" name="third_party_lastname2"/>                           
+                </div>
+                <div t-attf-class="form-group col-12 mb24 mt-3">
+                    <label t-attf-class="label-optional" for="third_party_name_vat">N° de RUT</label>
+                    <input t-attf-class="form-control input-lg" type="text" id="third_party_name_vat" name="third_party_name_vat"/> 
+                </div>
+            </div>
+        </div>            
+    </template>
+    <template id="pickup_by_third_party" inherit_id="website_sale_delivery.payment_delivery">
+        <xpath expr="//div[@id='payment_method']" position="before">
+            <t t-call="pickup_by_third_party.template_pickup_by_third_party"/>
+        </xpath>
+        <xpath expr="//div[@id='payment_method']" position="attributes">
+            <attribute name="class">mt-3 mb24</attribute>
+        </xpath>
+    </template>
+</odoo>
