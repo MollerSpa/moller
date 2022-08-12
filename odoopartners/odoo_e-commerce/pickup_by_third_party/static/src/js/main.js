@@ -14,20 +14,37 @@ odoo.define('pickup_by_third_party.allow_third_party',function (require) {
                 $('#form_allow_third_party').show();
             }else {
               $('#form_allow_third_party').hide();
-            }
+            }    
         },
-    })    
-    
+    })
+
     $('#selection_allow_third_party').on('change', function(){
         const $personCollects = $('#selection_allow_third_party').val();
         if ($personCollects == 'another') {
             $('#form_allow_third_party').show();
         }else {
           $('#form_allow_third_party').hide();
-        }
+        }    
     });
 
-    $("button#o_payment_form_pay").bind("click", function (ev) {
+    $('#delivery_method').ready(function(){
+        $('.o_delivery_carrier_select').click(function(){
+            const $deliveryCarrierSelectId = $(this).attr('value');
+            $ajax.jsonRpc(
+                '/shop/payment/delivery_carrier_selection', 'call', {
+                'delivery_type_id': $deliveryCarrierSelectId
+            }).then(function (data) {
+                const $allowThirdParty = data.allow_third_party;
+                if ($allowThirdParty === true){
+                    $('#form_pickup_by_third_party').show();
+                }else {
+                    $('#form_pickup_by_third_party').hide();
+                }
+            })
+        })
+    });
+
+    $('button#o_payment_form_pay').bind('click', function (ev) {
         const $personCollects = $('#selection_allow_third_party').val();
         if ($personCollects == '' || $personCollects == 'me') {
             return;

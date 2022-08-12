@@ -483,7 +483,7 @@
     <!-- Show the payment term conditions -->
     <template id="payment_sale_note_terms" inherit_id="checkout.one_page" name="Accept Terms &amp; Conditions" customize_show="True" active="False">
         <xpath expr="//div//t[@t-call='checkout.payment_method_button']" position="before">
-            <div id="checkbox_js" class="custom-control custom-checkbox float-right mt-2 oe_accept_cgv_button col-md-12">
+            <div id="checkbox_js" class="custom-control custom-checkbox float-right mt-2 mb24 oe_accept_cgv_button col-md-12">
                 <input type="checkbox" id="checkbox_cgv" class="custom-control-input"/>
                 <label for="checkbox_cgv" class="custom-control-label">
                     I agree to the <a target="_BLANK" href="/shop/terms">terms &amp; conditions</a>

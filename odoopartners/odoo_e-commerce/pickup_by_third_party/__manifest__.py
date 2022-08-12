@@ -1,6 +1,6 @@
 {
     'name': 'Who picks up',
-    'version': '14.0.0.0.0',
+    'version': '14.0.1.0.0',
     'author': 'Ganemo',
     'website': 'https://www.ganemo.co',
     'description': """Add information of the person who picks up or receives the package""",
@@ -10,7 +10,7 @@
     'data': [
         'templates/assets.xml',
         'templates/template.xml',
-        'views/res_config_settings.xml',
+        'views/delivery_carrier.xml',
         'views/sale_order_views.xml',
     ],
     'installable': True,

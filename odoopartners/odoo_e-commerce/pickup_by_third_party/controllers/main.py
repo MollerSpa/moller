@@ -2,6 +2,7 @@ from odoo import http
 from odoo.http import request
 from odoo.addons.website_sale.controllers.main import WebsiteSale
 
+
 class websiteSaleOrder(WebsiteSale):
 
     @http.route(['/shop/payment/allow_third_party'], type='json', auth="public", methods=['POST'], website=True)
@@ -24,10 +25,12 @@ class websiteSaleOrder(WebsiteSale):
             }
             order.sudo().write(vals)
         return True
-        
-    def _get_shop_payment_values(self, order, **kwargs):
-        res = super(websiteSaleOrder, self)._get_shop_payment_values(order, **kwargs)
-        allow_third_party = request.env['ir.config_parameter'].sudo().get_param(
-            'pickup_by_third_party.allow_third_party')
-        res['allow_third_party'] = allow_third_party
-        return res
+
+    @http.route(['/shop/payment/delivery_carrier_selection'], type='json', auth="public", methods=['POST'],
+                website=True)
+    def delivery_carrier_selection(self, **kw):
+        delivery_ids = request.env['delivery.carrier'].sudo().search(
+            [('allow_third_party', '=', True), ('is_published', '=', True)])
+        delivery_carrier_id = int(kw.get('delivery_type_id'))
+        allow_third_party = any(delivery_ids.filtered(lambda delivery: delivery.id == delivery_carrier_id))
+        return {'allow_third_party': allow_third_party}
