@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="delivery_carrier_form_view_inherit_pickup_by_third_party" model="ir.ui.view">
+        <field name="name">delivery.carrier.form.view.inherit.pickup.by.third.party</field>
+        <field name="model">delivery.carrier</field>
+        <field name="inherit_id" ref="website_sale_delivery.view_delivery_carrier_form_website_delivery"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='website_id']" position="after">
+                <field name="allow_third_party"/>
+            </xpath>
+        </field>
+    </record>
+</odoo> 
