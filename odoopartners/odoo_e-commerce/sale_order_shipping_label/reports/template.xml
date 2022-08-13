@@ -31,23 +31,21 @@
                                             <t t-set="company" t-value="res_company"/>
                                         </t>
                                     </t>
-                                    <img style="width: 320px; height: 162px;" t-att-src="'data:image/png;base64,%s' % company.logo" t-if="company.logo"/>
+                                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 130px; max-width: 400px;" alt="Logo"/>
                                 </div>
                                 <br/>
                                 <div style="font-family: Arial; font-size: 38px; font-weight: 500;">
-                                    <t t-if="doc.allow_third_party">
-                                        <t t-if="doc.third_party_name">
-                                            <span>
-                                                <t t-esc="doc.third_party_name"/>
-                                            </span>
-                                            <span>
-                                                <t t-esc="doc.third_party_lastname"/>
-                                            </span>
-                                            <span>
-                                                <t t-esc="doc.third_party_lastname2"/>
-                                            </span>
-                                        </t>                                        
-                                    </t>
+                                    <t t-if="doc.third_party_name">
+                                        <span>
+                                            <t t-esc="doc.third_party_name"/>
+                                        </span>
+                                        <span>
+                                            <t t-esc="doc.third_party_lastname"/>
+                                        </span>
+                                        <span>
+                                            <t t-esc="doc.third_party_lastname2"/>
+                                        </span>
+                                    </t>                                        
                                     <t t-else="">
                                         <t t-esc="doc.partner_shipping_id.name"/>
                                     </t>
@@ -126,7 +124,7 @@
                                     </t>
                                 </div>
                                 <t t-if="i == 1">
-                                    <br/><br/>
+                                    <br/><br/><br/>
                                 </t>
                             </div>
                         </t>

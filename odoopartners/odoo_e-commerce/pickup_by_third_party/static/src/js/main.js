@@ -50,7 +50,7 @@ odoo.define('pickup_by_third_party.allow_third_party',function (require) {
             return;
         }
         if($personCollects == 'another'){ 
-            const $dict = {};
+            const $dict = {'allow_third_party': $personCollects};
             const $thirdPartyName = $('#third_party_name').val();
             const $thirdPartyLastname = $('#third_party_lastname').val();
             const $thirdPartyLastname2 = $('#third_party_lastname2').val();
