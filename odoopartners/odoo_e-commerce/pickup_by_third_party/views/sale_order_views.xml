@@ -6,11 +6,14 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='payment_term_id']" position="after">
-                <field name="third_party_name" attrs="{'invisible': [('allow_third_party','=', False)]}"/>
-                <field name="third_party_lastname" attrs="{'invisible': [('allow_third_party','=', False)]}"/>
-                <field name="third_party_lastname2" attrs="{'invisible': [('allow_third_party','=', False)]}"/>
-                <field name="third_party_name_vat" attrs="{'invisible': [('allow_third_party','=', False)]}"/>
-                <field name="allow_third_party" invisible="1"/>
+                <div>
+                    <br/>
+                    <b>Quien retira?</b>
+                </div>
+                <field name="third_party_name"/>
+                <field name="third_party_lastname"/>
+                <field name="third_party_lastname2"/>
+                <field name="third_party_name_vat"/>
             </xpath>
         </field>
     </record>
