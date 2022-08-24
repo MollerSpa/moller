@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="template_pickup_by_third_party">
-        <div id="form_pickup_by_third_party">
+        <div id="form_pickup_by_third_party" style="display: none;">
             <div id="form_who_picks_up" class="form-group mt24 mb24"
                  style="display: flex; width: 100%; align-items: center;">
                 <h3 style="width: 60%;">Who picks up?</h3>
