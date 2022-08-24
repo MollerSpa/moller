@@ -5,7 +5,7 @@
             <div class="mt24 mb24" name="observations">
                 <div class="form-group">
                     <h3 class="mb24">Observations</h3>
-                    <textarea class="form-control" style="max-height: 380px; min-height: 100px" id="checkout_observations" placeholder="Write an observation ..."/>
+                    <textarea class="form-control" style="max-height: 380px; min-height: 100px" id="checkout_observations" placeholder="What you want to add ..."/>
                 </div>
             </div>
         </xpath>

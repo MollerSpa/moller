@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-24 14:11+0000\n"
-"PO-Revision-Date: 2022-08-24 14:11+0000\n"
+"POT-Creation-Date: 2022-08-24 18:58+0000\n"
+"PO-Revision-Date: 2022-08-24 18:58+0000\n"
 "Last-Translator: Flores S. Leo Daniel <l30dfs@gmail.com>, 2022\n"
 "Language-Team: Spanish\n"
 "MIME-Version: 1.0\n"
@@ -48,5 +48,5 @@ msgstr "Pedidos de venta"
 
 #. module: observations_checkout
 #: model_terms:ir.ui.view,arch_db:observations_checkout.checkout_observations
-msgid "Write an observation ..."
-msgstr "Escriba una observación ..."
+msgid "What you want to add ..."
+msgstr "Lo que desee agregar ..."
