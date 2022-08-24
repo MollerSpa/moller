@@ -6,9 +6,8 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='payment_term_id']" position="after">
-                <div>
-                    <br/>
-                    <b>Quien retira?</b>
+                <div class="mt-4">
+                    <b>Who withdraws?</b>
                 </div>
                 <field name="third_party_name"/>
                 <field name="third_party_lastname"/>

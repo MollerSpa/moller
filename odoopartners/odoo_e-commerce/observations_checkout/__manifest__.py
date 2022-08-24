@@ -1,12 +1,12 @@
 {
     'name': 'Add customer feedback to your ecommerce',
-    'version': '14.0.0.0.0',
+    'version': '14.0.0.1.0',
     'author': 'Ganemo',
     'website': 'https://www.ganemo.co',
     'description': """Add customer feedback to your ecommerce""",
     'summary': 'Add customer feedback to your ecommerce',
     'category': 'eCommerce',
-    'depends': ['website_sale'],
+    'depends': ['website_sale', 'sale_management'],
     'data': [
         'templates/assets.xml',
         'templates/template.xml',

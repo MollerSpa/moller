@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0-20220629\n"
+"Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-12 08:22+0000\n"
-"PO-Revision-Date: 2022-08-12 08:22+0000\n"
+"POT-Creation-Date: 2022-08-24 16:37+0000\n"
+"PO-Revision-Date: 2022-08-24 16:37+0000\n"
 "Last-Translator: Flores S. Leo Daniel <l30dfs@gmail.com>, 2022\n"
 "Language-Team: Spanish (Peru)\n"
 "MIME-Version: 1.0\n"
@@ -17,8 +17,12 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pickup_by_third_party
+#: model_terms:ir.ui.view,arch_db:pickup_by_third_party.sale_order_form_view_inherit_pickup_by_third_party
+msgid "<b>Who withdraws?</b>"
+msgstr "<b>Quien retira?</b>"
+
+#. module: pickup_by_third_party
 #: model:ir.model.fields,field_description:pickup_by_third_party.field_delivery_carrier__allow_third_party
-#: model:ir.model.fields,field_description:pickup_by_third_party.field_sale_order__allow_third_party
 msgid "Allow third party withdrawal"
 msgstr "Permitir retiro de terceros"
 
@@ -85,7 +89,7 @@ msgstr "Nombre"
 #: model:ir.model.fields,field_description:pickup_by_third_party.field_sale_order__third_party_name_vat
 #: model_terms:ir.ui.view,arch_db:pickup_by_third_party.template_pickup_by_third_party
 msgid "N° de RUT"
-msgstr "N° de RUT"
+msgstr ""
 
 #. module: pickup_by_third_party
 #: model:ir.model,name:pickup_by_third_party.model_sale_order
