@@ -1,6 +1,6 @@
 {
     'name': 'Who picks up',
-    'version': '14.0.1.1.0',
+    'version': '14.0.1.1.1',
     'author': 'Ganemo',
     'website': 'https://www.ganemo.co',
     'description': """Add information of the person who picks up or receives the package""",
