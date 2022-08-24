@@ -48,5 +48,5 @@ msgstr "Pedidos de Venta"
 
 #. module: observations_checkout
 #: model_terms:ir.ui.view,arch_db:observations_checkout.checkout_observations
-msgid "Write an observation ..."
-msgstr "Escriba una observación ..."
+msgid "What you want to add ..."
+msgstr "Lo que desee agregar ..."
