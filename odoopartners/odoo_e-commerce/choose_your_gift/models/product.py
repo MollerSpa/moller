@@ -17,9 +17,9 @@ class ProductProduct(models.Model):
 
     def filter_gifts(self, warehouse_id):
         data = []
-        available_threshold = self.product_tmpl_id.available_threshold
         for gift_id in self.gifts_ids:
             virtual_available = gift_id.with_context(warehouse=warehouse_id).virtual_available
+            available_threshold = gift_id.product_tmpl_id.available_threshold
             data.append({
                 'gift_id': gift_id,
                 'error': False if virtual_available > available_threshold else True
