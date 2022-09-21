@@ -1,6 +1,6 @@
 {
     'name': 'Hide fields in your billing address in ecommerce',
-    'version': '14.0.1.0.0',
+    'version': '14.0.1.0.1',
     'author': 'Ganemo',
     'website': 'https://www.ganemo.co/demo',
     'summary': 'Hide fields in your billing address in ecommerce',

@@ -2,12 +2,8 @@
 <odoo>
 
     <template id="hide_checkout_fields_inherit_address" inherit_id="website_sale.address" active="True" name="Hide checkout fields billing address">
-        <xpath expr="//input[@id='shipping_use_same']/parent::label/parent::div/parent::div/parent::t" position="attributes">
-            <attribute name="t-if">
-                mode == ('new', 'billing') and \
-                not only_services and \
-                website.use_billing_delivery_address
-            </attribute>
+        <xpath expr="//input[@id='shipping_use_same']/parent::label" position="attributes">
+            <attribute name="t-attf-style" add="#{'display: none' if website.use_billing_delivery_address else ''}"/>
         </xpath>
     </template>
 

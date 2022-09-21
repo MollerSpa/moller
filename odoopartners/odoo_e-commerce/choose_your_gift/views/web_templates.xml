@@ -11,7 +11,16 @@
         </xpath>
     </template>
 
-    <template id="gift_website_sale_cart_lines" inherit_id="website_sale.cart_lines" name="Gift Shopping Cart Lines">
+    <template id="gift_website_sale_coupon_cart_summary_show_img" inherit_id="website_sale_coupon.website_sale_coupon_cart_summary_show_img">
+        <xpath expr="//td[hasclass('td-img')]/span" position="attributes">
+            <attribute name="t-if">(not line.is_reward_line or not line.sudo().product_id.image_128) and not line.is_gift</attribute>
+        </xpath>
+        <xpath expr="//img[hasclass('o_image_64_max')]/parent::span" position="attributes">
+            <attribute name="t-if">line.is_reward_line and line.sudo().product_id.image_128 or line.is_gift</attribute>
+        </xpath>
+    </template>
+
+    <template id="gift_website_sale_cart_lines" inherit_id="website_sale_coupon.website_sale_coupon_cart_hide_qty" name="Gift Shopping Cart Lines">
         <xpath expr="//td[hasclass('td-product_name')]" position="inside">
             <t t-if='line.product_id.website_gift_active and not line.gift_line_ids'>
                 <div>
@@ -34,7 +43,7 @@
                                     <t t-foreach="line.product_id.filter_gifts(website._get_warehouse_available())" t-as="gift_id">
                                         <div class="row mb8 cart_line">
                                             <div class="col-3 text-center">
-                                                <span t-field="gift_id['gift_id'].image_128" t-options="{'widget': 'image', 'qweb_img_responsive': False, 'class': 'rounded o_image_64_max mb-2'}" />
+                                                <img t-att-src="image_data_uri(gift_id['gift_id'].sudo().image_128)" class="o_image_64_max rounded" t-att-alt="line.name_short"/>
                                             </div>
                                             <div class="col-9">
                                                 <div>
@@ -60,6 +69,9 @@
                     </div>
                 </div>
             </t>
+        </xpath>
+        <xpath expr="//img[hasclass('o_image_64_max')]/parent::span/parent::t" position="attributes">
+            <attribute name="t-if">line.is_reward_line and line.sudo().product_id.image_128 or line.is_gift</attribute>
         </xpath>
         <xpath expr="//div[hasclass('css_quantity')]" position="replace">
             <t t-if='line.is_gift'>
