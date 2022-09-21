@@ -1,11 +1,14 @@
 {
     'name': 'Choose your gift in e-commerce',
-    'version': '14.0.1.1.3',
+    'version': '14.0.1.1.4',
     'author': 'Ganemo',
     'website': 'https://www.ganemo.co/demo',
     'summary': 'Allows the customer to choose their gift according to the product they buy',
     'category': 'Sales',
-    'depends': ['website_sale_stock'],
+    'depends': [
+        'website_sale_stock',
+        'website_sale_coupon'
+    ],
     'data': [
         'security/ir.model.access.csv',
         'static/src/xml/assets.xml',
