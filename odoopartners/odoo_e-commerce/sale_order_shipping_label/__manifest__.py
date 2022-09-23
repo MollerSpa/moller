@@ -1,6 +1,6 @@
 {
     'name': 'Shipping label printing',
-    'version': '14.0.0.2.0',
+    'version': '14.0.0.2.1',
     'author': 'Ganemo',
     'website': 'https://www.ganemo.co',
     'description': """From sales orders, print shipping label""",
