@@ -81,14 +81,17 @@
                                         <t t-if="doc.partner_id.phone">
                                             <t t-esc="doc.partner_id.phone"/>
                                         </t>
-                                        <span>/</span>
                                         <t t-if="doc.partner_id.mobile">
+                                            <span>/</span>
                                             <t t-esc="doc.partner_id.mobile"/>
                                         </t>
                                     </t>
                                 </div>
                                 <div style="font-family: Arial; font-size: 42px; font-weight: 600; color: #e8a125;">
                                     <t t-if="doc.pickup_store_id">
+                                        <t t-if="doc.pickup_store_id.parent_id">
+                                            <span><t t-esc="doc.pickup_store_id.parent_id.name"/>,</span>
+                                        </t>
                                         <t t-esc="doc.pickup_store_id.name"/>
                                     </t>
                                     <t t-else="">
