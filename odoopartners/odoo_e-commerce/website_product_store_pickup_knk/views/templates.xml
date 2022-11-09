@@ -50,7 +50,7 @@
         </xpath>
     </template>
     <template id="payment_delivery_methods_inherit_pickup" inherit_id="website_sale_delivery.payment_delivery_methods">
-        <xpath expr="//span[@t-att-class='badge_class'][2]" position="attributes">
+        <xpath expr="//span" position="attributes">
             <attribute name="t-att-class">'badge_class' if not delivery.is_pickup else 'd-none'</attribute>
         </xpath>
     </template>
