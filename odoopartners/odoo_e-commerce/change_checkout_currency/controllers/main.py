@@ -12,6 +12,9 @@ class WebsiteSaleGift(WebsiteSale):
         sale_order_id = request.env['sale.order'].sudo().browse(order_id)
         if sale_order_id.pricelist_id and sale_order_id.pricelist_id.id == price_list_id or not price_list_id:
             return {'equal': True}
+        # Validation for enterprise shipping types
+        if sale_order_id.carrier_id.delivery_type in ['fedex']:
+            return {'equal': True}
         sale_order_id.pricelist_id = price_list_id
         for line in sale_order_id.order_line:
             line.product_id_change()

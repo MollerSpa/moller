@@ -1,6 +1,6 @@
 {
     'name': 'Modify currency in odoo e-commerce checkout',
-    'version': '14.0.2.0.1',
+    'version': '14.0.2.0.2',
     'author': 'Ganemo',
     'website': 'https://www.ganemo.co/demo',
     'summary': 'Modify the currency when choosing the payment method in odoo e-commerce',
