@@ -24,6 +24,7 @@ class WebsiteSoludoo(http.Controller):
                         'website_sale_order': order_id,
                         'date': fields.Date.today(),
                     })
+                                
         if order_id and store_id:
             store_id = ResPartner.browse(store_id)
             order_id.sudo().write({'pickup_store_id': store_id.id})
