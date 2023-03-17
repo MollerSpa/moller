@@ -1,6 +1,6 @@
 {
     'name': 'Choose your gift in e-commerce',
-    'version': '14.0.1.1.4',
+    'version': '14.0.1.1.5',
     'author': 'Ganemo',
     'website': 'https://www.ganemo.co/demo',
     'summary': 'Allows the customer to choose their gift according to the product they buy',

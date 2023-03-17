@@ -25,7 +25,7 @@
             <t t-if='line.product_id.website_gift_active and not line.gift_line_ids'>
                 <div>
                     <a t-att-id="str(line.product_id.id)" role="button" class="js_gift_wrap_product btn btn-primary d-xl-inline-block" href="#">
-                        <span class="">Gift wrap</span>
+                        <span class="" style="white-space: nowrap;">Gift wrap</span>
                     </a>
                 </div>
                 <div t-att-id="'hidden_box_' + str(line.product_id.id)" class="modal fade">
