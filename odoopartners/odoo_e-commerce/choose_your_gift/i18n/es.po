@@ -5,8 +5,8 @@ msgstr "<span>Escoge un regalo disponible con este producto. Añade el producto 
 
 #. module: choose_your_gift
 #: model_terms:ir.ui.view,arch_db:choose_your_gift.gift_website_sale_cart_lines
-msgid "<span class=\"\">Gift wrap</span>"
-msgstr "<span class=\"\">Escoge tu regalo</span>"
+msgid "<span class=\"\" style=\"white-space: nowrap;\">Gift wrap</span>"
+msgstr "<span class=\"\" style=\"white-space: nowrap;\">Escoge tu regalo</span>"
 
 #. module: choose_your_gift
 #: model_terms:ir.ui.view,arch_db:choose_your_gift.gift_website_sale_cart_lines
